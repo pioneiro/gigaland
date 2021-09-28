@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/gigaland/static/css/main.5839e39e.chunk.css",
+    "main.js": "/gigaland/static/js/main.be195b6d.chunk.js",
+    "main.js.map": "/gigaland/static/js/main.be195b6d.chunk.js.map",
+    "runtime-main.js": "/gigaland/static/js/runtime-main.85454094.js",
+    "runtime-main.js.map": "/gigaland/static/js/runtime-main.85454094.js.map",
+    "static/js/2.3ba899c5.chunk.js": "/gigaland/static/js/2.3ba899c5.chunk.js",
+    "static/js/2.3ba899c5.chunk.js.map": "/gigaland/static/js/2.3ba899c5.chunk.js.map",
+    "index.html": "/gigaland/index.html",
+    "static/css/main.5839e39e.chunk.css.map": "/gigaland/static/css/main.5839e39e.chunk.css.map",
+    "static/js/2.3ba899c5.chunk.js.LICENSE.txt": "/gigaland/static/js/2.3ba899c5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.85454094.js",
+    "static/js/2.3ba899c5.chunk.js",
+    "static/css/main.5839e39e.chunk.css",
+    "static/js/main.be195b6d.chunk.js"
+  ]
+}
