@@ -1,2 +1,0 @@
-(this.webpackJsonpgigaland=this.webpackJsonpgigaland||[]).push([[0],{10:function(n,t,e){"use strict";e.r(t);var c=e(1),i=e.n(c),a=e(3),r=e.n(a),s=(e(8),e(0)),d=function(){return Object(s.jsx)("h1",{children:"Gigaland"})};r.a.render(Object(s.jsx)(i.a.StrictMode,{children:Object(s.jsx)(d,{})}),document.getElementById("root"))},8:function(n,t,e){}},[[10,1,2]]]);
-//# sourceMappingURL=main.be195b6d.chunk.js.map
