@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/gigaland/static/css/main.2dff9c8b.chunk.css",
-    "main.js": "/gigaland/static/js/main.27ffb9fc.chunk.js",
-    "main.js.map": "/gigaland/static/js/main.27ffb9fc.chunk.js.map",
+    "main.css": "/gigaland/static/css/main.95d76799.chunk.css",
+    "main.js": "/gigaland/static/js/main.8315fcbd.chunk.js",
+    "main.js.map": "/gigaland/static/js/main.8315fcbd.chunk.js.map",
     "runtime-main.js": "/gigaland/static/js/runtime-main.85454094.js",
     "runtime-main.js.map": "/gigaland/static/js/runtime-main.85454094.js.map",
     "static/js/2.3e1725b7.chunk.js": "/gigaland/static/js/2.3e1725b7.chunk.js",
     "static/js/2.3e1725b7.chunk.js.map": "/gigaland/static/js/2.3e1725b7.chunk.js.map",
     "index.html": "/gigaland/index.html",
-    "static/css/main.2dff9c8b.chunk.css.map": "/gigaland/static/css/main.2dff9c8b.chunk.css.map",
+    "static/css/main.95d76799.chunk.css.map": "/gigaland/static/css/main.95d76799.chunk.css.map",
     "static/js/2.3e1725b7.chunk.js.LICENSE.txt": "/gigaland/static/js/2.3e1725b7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.85454094.js",
     "static/js/2.3e1725b7.chunk.js",
-    "static/css/main.2dff9c8b.chunk.css",
-    "static/js/main.27ffb9fc.chunk.js"
+    "static/css/main.95d76799.chunk.css",
+    "static/js/main.8315fcbd.chunk.js"
   ]
 }
