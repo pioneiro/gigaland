@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/gigaland/static/css/main.2d6c0016.chunk.css",
-    "main.js": "/gigaland/static/js/main.5fee6c87.chunk.js",
-    "main.js.map": "/gigaland/static/js/main.5fee6c87.chunk.js.map",
+    "main.css": "/gigaland/static/css/main.b4f22e13.chunk.css",
+    "main.js": "/gigaland/static/js/main.15e53489.chunk.js",
+    "main.js.map": "/gigaland/static/js/main.15e53489.chunk.js.map",
     "runtime-main.js": "/gigaland/static/js/runtime-main.85454094.js",
     "runtime-main.js.map": "/gigaland/static/js/runtime-main.85454094.js.map",
     "static/js/2.ab5711ee.chunk.js": "/gigaland/static/js/2.ab5711ee.chunk.js",
     "static/js/2.ab5711ee.chunk.js.map": "/gigaland/static/js/2.ab5711ee.chunk.js.map",
     "index.html": "/gigaland/index.html",
-    "static/css/main.2d6c0016.chunk.css.map": "/gigaland/static/css/main.2d6c0016.chunk.css.map",
+    "static/css/main.b4f22e13.chunk.css.map": "/gigaland/static/css/main.b4f22e13.chunk.css.map",
     "static/js/2.ab5711ee.chunk.js.LICENSE.txt": "/gigaland/static/js/2.ab5711ee.chunk.js.LICENSE.txt",
     "static/media/NFT.c82a8c50.png": "/gigaland/static/media/NFT.c82a8c50.png"
   },
   "entrypoints": [
     "static/js/runtime-main.85454094.js",
     "static/js/2.ab5711ee.chunk.js",
-    "static/css/main.2d6c0016.chunk.css",
-    "static/js/main.5fee6c87.chunk.js"
+    "static/css/main.b4f22e13.chunk.css",
+    "static/js/main.15e53489.chunk.js"
   ]
 }
