@@ -2,17 +2,48 @@ import React, { useState } from "react";
 
 import { name } from "../../package.json";
 
+const Search = ({ customClass }) => (
+  <input
+    type="text"
+    placeholder="search items here..."
+    className={`transition-all rounded-full bg-gray-200 text-gray-700 placeholder-gray-500 text-center sm:text-left ${customClass}`}
+  />
+);
+
 const Navbar = () => {
+  // const [navBackground, setNavBackground] = useState("bg-transparent");
   const [search, setSearch] = useState(false);
   const [menu, setMenu] = useState(false);
 
+  // window.addEventListener("scroll", () =>
+  //   setNavBackground(window.scrollY >= 128 ? "bg-gray-100" : "bg-transparent")
+  // );
+
+  window.onresize = () => {
+    if (window.innerWidth > 1024) setMenu(false);
+  };
+
   return (
-    <nav className="bg-gray-100 text-gray-700 py-3 px-3 w-screen mb-5">
-      <div className="max-w-7xl mx-auto lg:flex justify-between">
-        <div className="flex justify-between items-center space-x-2">
-          <a href="/#" className="flex items-center px-2 py-2 text-purple-700">
+    <nav
+      className={
+        (menu ? "h-screen bg-gray-100" : `h-20 bg-transparent`) +
+        ` w-full z-50 fixed top-0 px-3 text-gray-700 lg:h-20 lg:bg-transparent`
+      }
+    >
+      <div
+        id="nav-container"
+        className={
+          (menu ? "h-full" : "h-20") +
+          " w-full overflow-hidden max-w-7xl mx-auto flex flex-col items-center lg:h-20 lg:flex-row lg:justify-between"
+        }
+      >
+        <div
+          id="nav-logo"
+          className="h-20 w-full lg:w-auto flex justify-between items-center space-x-2"
+        >
+          <a href="/" className="h-20 flex items-center p-2">
             <svg
-              className="h-12 w-12 mr-1"
+              className="h-12 w-12 mr-1 text-purple-700"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -27,80 +58,90 @@ const Navbar = () => {
             </svg>
             <span className="text-3xl font-semibold">{name}</span>
           </a>
-          <div className="h-11 flex items-center space-x-2">
+          <div className="h-12 flex items-center space-x-2">
             <div className="hidden sm:flex items-center relative">
-              <input
-                className={
-                  (search ? "" : "hidden") +
-                  " lg:block h-10 rounded-full pl-5 pr-12 lg:px-5 bg-gray-300 text-gray-900 placeholder-gray-900"
+              <Search
+                customClass={
+                  (search ? "w-52 pl-5 pr-12" : "mr-6 px-0 w-0") +
+                  " h-10 focus:w-72 lg:w-52 lg:px-5"
                 }
-                type="text"
-                placeholder="search items here..."
               />
-              <div
-                className="lg:hidden h-11 w-11 absolute right-0 bg-purple-700 text-gray-200 rounded-full"
+              <button
+                className="h-12 w-12 bg-purple-700 text-gray-200 rounded-full lg:hidden absolute right-0 active:bg-purple-900"
                 onClick={() => setSearch(!search)}
               >
                 <svg
-                  className="h-11 w-6 mx-auto"
+                  className={`h-12 w-6 mx-auto transition transform ${
+                    search ? "rotate-90" : ""
+                  }`}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
                   <path
                     fillRule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    d={
+                      search
+                        ? "M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                        : "M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    }
                     clipRule="evenodd"
                   />
                 </svg>
-              </div>
+              </button>
             </div>
-            <div
-              className="lg:hidden h-11 w-11 bg-purple-700 text-gray-200 rounded-full"
+            <button
+              className="lg:hidden h-12 w-12 bg-purple-700 text-gray-200 rounded-full active:bg-purple-900"
               onClick={() => setMenu(!menu)}
             >
               <svg
-                className="h-11 w-6 mx-auto"
+                className={`h-12 w-6 mx-auto transition transform ${
+                  menu ? "rotate-90" : ""
+                }`}
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                viewBox="0 0 20 20"
+                fill="currentColor"
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
+                  fillRule="evenodd"
+                  d={
+                    menu
+                      ? "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      : "M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  }
+                  clipRule="evenodd"
                 />
               </svg>
-            </div>
+            </button>
           </div>
         </div>
 
         <div
-          className={
-            (menu ? "flex" : "hidden") +
-            " flex-col items-center space-y-4 h-full w-full py-10 lg:flex lg:flex-row lg:h-auto lg:w-auto lg:py-0 lg:space-y-0 lg:space-x-4 lg:text-lg xl:text-xl"
-          }
+          className={`h-screen w-screen py-4 transition-all relative ${
+            menu ? "bottom-0" : "-bottom-full"
+          } lg:static lg:w-auto lg:text-lg xl:text-xl`}
         >
-          <a className="hover:text-purple-700" href="/#">
-            <span>Home</span>
-          </a>
-          <a className="hover:text-purple-700" href="/#">
-            <span>Explore</span>
-          </a>
-          <a className="hover:text-purple-700" href="/#">
-            <span>Pages</span>
-          </a>
-          <a className="hover:text-purple-700" href="/#">
-            <span>Stats</span>
-          </a>
-          <a className="hover:text-purple-700" href="/#">
-            <span>Elements</span>
-          </a>
-          <div className="bg-purple-700 hover:bg-purple-900 text-gray-100 rounded-2xl px-2 py-1">
-            <span>Connect Wallet</span>
-          </div>
+          <nav className="h-full w-full flex flex-col items-center space-y-4 lg:flex-row lg:space-x-4 lg:space-y-0">
+            <Search customClass="sm:hidden h-8 w-1/2 focus:w-3/4 px-5" />
+            <a href="home" className="hover:text-purple-700">
+              <span>Home</span>
+            </a>
+            <a href="explore" className="hover:text-purple-700">
+              <span>Explore</span>
+            </a>
+            <a href="pages" className="hover:text-purple-700">
+              <span>Pages</span>
+            </a>
+            <a href="stats" className="hover:text-purple-700">
+              <span>Stats</span>
+            </a>
+            <a href="elements" className="hover:text-purple-700">
+              <span>Elements</span>
+            </a>
+            <button className="bg-purple-700 hover:bg-purple-800 active:bg-purple-900 text-gray-100 rounded-2xl px-5 py-1 lg:px-3">
+              <span>Connect Wallet</span>
+            </button>
+          </nav>
         </div>
       </div>
     </nav>
