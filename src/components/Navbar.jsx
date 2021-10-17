@@ -6,28 +6,35 @@ const Search = ({ customClass }) => (
   <input
     type="text"
     placeholder="search items here..."
-    className={`transition-all rounded-full bg-gray-200 text-gray-700 placeholder-gray-500 text-center sm:text-left ${customClass}`}
+    className={`transition-all rounded-full bg-gray-200 text-gray-700 placeholder-gray-500 text-center sm:text-left ${customClass} focus:ring-1 ring-purple-500`}
   />
 );
 
 const Navbar = () => {
-  // const [navBackground, setNavBackground] = useState("bg-transparent");
+  const [navBlur, setNavBlur] = useState("");
   const [search, setSearch] = useState(false);
   const [menu, setMenu] = useState(false);
 
-  // window.addEventListener("scroll", () =>
-  //   setNavBackground(window.scrollY >= 128 ? "bg-gray-100" : "bg-transparent")
-  // );
+  window.addEventListener("scroll", () =>
+    setNavBlur(
+      window.scrollY >= 192
+        ? "backdrop-filter backdrop-blur-md border-b-2 border-purple-800"
+        : ""
+    )
+  );
 
   window.onresize = () => {
-    if (window.innerWidth > 1024) setMenu(false);
+    if (window.innerWidth > 1024) {
+      setMenu(false);
+      setSearch(false);
+    }
   };
 
   return (
     <nav
       className={
         (menu ? "h-screen bg-gray-100" : `h-20 bg-transparent`) +
-        ` w-full z-50 fixed top-0 px-3 text-gray-700 lg:h-20 lg:bg-transparent`
+        ` w-full z-50 fixed top-0 px-3 text-gray-700 transition lg:h-20 lg:bg-transparent ${navBlur}`
       }
     >
       <div
@@ -62,8 +69,8 @@ const Navbar = () => {
             <div className="hidden sm:flex items-center relative">
               <Search
                 customClass={
-                  (search ? "w-52 pl-5 pr-12" : "mr-6 px-0 w-0") +
-                  " h-10 focus:w-72 lg:w-52 lg:px-5"
+                  (search ? "w-56 pl-5 pr-12" : "mr-6 px-0 w-0") +
+                  " h-10 focus:w-72 lg:w-56 lg:px-5"
                 }
               />
               <button

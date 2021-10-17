@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       backgroundColor: ["hover", "active"],
       borderWidth: ["hover", "focus"],
+      ringWidth: ["hover", "active"],
       height: ["hover", "focus"],
       width: ["hover", "focus"],
     },
