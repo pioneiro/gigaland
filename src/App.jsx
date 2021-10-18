@@ -11,6 +11,7 @@ import NFT from "./components/NTF.jsx";
 import image from "./assets/black hole.jpg";
 import avatar from "./assets/mr bean.png";
 import Category from "./components/Category.jsx";
+import TopSeller from "./components/TopSeller.jsx";
 
 const repeat = (component, times) => {
   const content = [];
@@ -86,6 +87,7 @@ const App = () => {
         </Carousel>
 
         <Heading>Top Sellers</Heading>
+        <TopSeller />
 
         <Heading>Browse by Category</Heading>
         <Category />
