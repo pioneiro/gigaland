@@ -18,8 +18,8 @@ const Navbar = () => {
   window.addEventListener("scroll", () =>
     setNavBlur(
       window.scrollY >= 192
-        ? "backdrop-filter backdrop-blur-md border-b-2 border-purple-800"
-        : ""
+        ? "lg:bg-gray-100 lg:bg-opacity-50 backdrop-filter backdrop-blur-md border-b-2 border-purple-800"
+        : "lg:bg-transparent"
     )
   );
 
@@ -34,7 +34,7 @@ const Navbar = () => {
     <nav
       className={
         (menu ? "h-screen bg-gray-100" : `h-20 bg-transparent`) +
-        ` w-full z-50 fixed top-0 px-3 text-gray-700 transition lg:h-20 lg:bg-transparent ${navBlur}`
+        ` w-full z-50 fixed top-0 px-3 text-gray-700 transition lg:h-20 ${navBlur}`
       }
     >
       <div
