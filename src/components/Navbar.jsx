@@ -69,7 +69,7 @@ const Navbar = () => {
             <div className="hidden sm:flex items-center relative">
               <Search
                 customClass={
-                  (search ? "w-56 pl-5 pr-12" : "mr-6 px-0 w-0") +
+                  (search ? "w-56 pl-5 pr-12" : "mr-5 px-0 w-0") +
                   " h-10 focus:w-72 lg:w-56 lg:px-5"
                 }
               />
@@ -126,7 +126,7 @@ const Navbar = () => {
         <div
           className={`h-screen w-screen py-4 transition-all relative ${
             menu ? "bottom-0" : "-bottom-full"
-          } lg:static lg:w-auto lg:text-lg xl:text-xl`}
+          } lg:static lg:h-full lg:w-auto lg:text-lg xl:text-xl`}
         >
           <nav className="h-full w-full flex flex-col items-center space-y-4 lg:flex-row lg:space-x-4 lg:space-y-0">
             <Search customClass="sm:hidden h-8 w-1/2 focus:w-3/4 px-5" />
