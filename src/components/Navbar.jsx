@@ -63,7 +63,7 @@ const Navbar = () => {
                 d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
               />
             </svg>
-            <span className="text-3xl font-semibold">{name}</span>
+            <span className="text-gray-700 text-3xl font-semibold">{name}</span>
           </a>
           <div className="h-12 flex items-center space-x-2">
             <div className="hidden sm:flex items-center relative">
