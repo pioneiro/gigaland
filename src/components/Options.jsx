@@ -1,15 +1,18 @@
 import React from "react";
 
-const Tile = ({ children, title, description, href }) => (
-  <a href={href} className="w-full md:w-1/2 xl:w-1/3 p-2 md:p-4 overflow-hidden">
+const Tile = ({ children, title, description }) => (
+  <div className="group w-full md:w-1/2 xl:w-1/3 p-2 md:p-4 overflow-hidden">
     <div className="flex items-center md:block bg-gray-200 p-6 md:p-12 rounded-xl space-x-3 md:space-x-0 md:space-y-3">
-      <div className="h-12 w-12 p-2 rounded-md bg-purple-700 text-gray-100">
+      <div className="h-12 w-12 p-2 rounded-md bg-purple-700 text-gray-100 group-hover:bg-gray-200 group-hover:text-purple-700 transition">
         {children}
       </div>
-      <h4 className="text-xl text-gray-900 font-bold">{title}</h4>
+      <h4 className="text-xl text-gray-700 inline-block font-bold">
+        {title}
+        <div className="h-0.5 w-0 group-hover:w-full bg-purple-700 transition-all"></div>
+      </h4>
       <p className="hidden md:block text-gray-700">{description}</p>
     </div>
-  </a>
+  </div>
 );
 
 const Options = () => {
