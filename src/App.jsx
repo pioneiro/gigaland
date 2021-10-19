@@ -12,6 +12,7 @@ import image from "./assets/black hole.jpg";
 import avatar from "./assets/mr bean.png";
 import Category from "./components/Category.jsx";
 import TopSeller from "./components/TopSeller.jsx";
+import Footer from "./components/Footer.jsx";
 
 const repeat = (component, times) => {
   const content = [];
@@ -92,6 +93,7 @@ const App = () => {
         <Heading>Browse by Category</Heading>
         <Category />
       </div>
+      <Footer />
     </>
   );
 };
