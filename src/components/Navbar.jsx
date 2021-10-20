@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { name } from "../../package.json";
 
@@ -6,22 +7,22 @@ const Search = ({ customClass }) => (
   <input
     type="text"
     placeholder="search items here..."
-    className={`transition-all rounded-full bg-gray-200 text-gray-700 placeholder-gray-500 text-center sm:text-left ${customClass} focus:ring-1 ring-purple-500`}
+    className={`transition-all rounded-full bg-gray-200 dark:bg-opacity-25 text-gray-700 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-300 text-center sm:text-left ${customClass} hover:ring-2 focus:ring-2 ring-purple-500 dark:ring-gray-200`}
   />
 );
 
-const Navbar = () => {
-  const [navBlur, setNavBlur] = useState("");
+const Navbar = ({ theme = "light" }) => {
+  const [navColor, setNavColor] = useState("");
   const [search, setSearch] = useState(false);
   const [menu, setMenu] = useState(false);
 
-  window.addEventListener("scroll", () =>
-    setNavBlur(
-      window.scrollY >= 144
-        ? "bg-gray-100"
-        : ""
-    )
-  );
+  if (!menu && theme === "dark") document.documentElement.classList.add("dark");
+  else document.documentElement.classList.remove("dark");
+
+  window.addEventListener("scroll", () => {
+    setNavColor(window.scrollY >= 144 ? "bg-gray-100" : "bg-transparent");
+    window.scrollY >= 144 && document.documentElement.classList.remove("dark");
+  });
 
   window.onresize = () => {
     if (window.innerWidth > 1024) {
@@ -33,8 +34,10 @@ const Navbar = () => {
   return (
     <nav
       className={
-        (menu ? "h-screen bg-gray-100" : `h-20`) +
-        ` w-full z-30 fixed top-0 px-3 text-gray-700 transition lg:h-20 ${!menu && navBlur}`
+        (menu ? "h-screen bg-gray-100 dark:bg-purple-900" : `h-20`) +
+        ` w-full z-30 fixed top-0 px-3 text-gray-700 dark:text-gray-200 transition lg:h-20 ${
+          !menu && navColor
+        }`
       }
     >
       <div
@@ -50,7 +53,7 @@ const Navbar = () => {
         >
           <a href="/" className="h-20 flex items-center p-2">
             <svg
-              className="h-12 w-12 mr-1 text-purple-700"
+              className="h-12 w-12 mr-1 text-purple-700 dark:text-gray-200"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -63,7 +66,9 @@ const Navbar = () => {
                 d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
               />
             </svg>
-            <span className="text-gray-700 text-3xl font-semibold">{name}</span>
+            <span className="text-gray-700 dark:text-gray-200 text-3xl font-semibold">
+              {name}
+            </span>
           </a>
           <div className="h-12 flex items-center space-x-2">
             <div className="hidden sm:flex items-center relative">
@@ -74,7 +79,7 @@ const Navbar = () => {
                 }
               />
               <button
-                className="h-12 w-12 bg-purple-700 text-gray-200 rounded-full lg:hidden absolute right-0 active:bg-purple-900"
+                className="h-12 w-12 bg-purple-700 active:bg-purple-900 dark:bg-gray-200 dark:active:bg-white text-gray-200 dark:text-purple-700 rounded-full lg:hidden absolute right-0"
                 onClick={() => setSearch(!search)}
               >
                 <svg
@@ -98,7 +103,7 @@ const Navbar = () => {
               </button>
             </div>
             <button
-              className="lg:hidden h-12 w-12 bg-purple-700 text-gray-200 rounded-full active:bg-purple-900"
+              className="lg:hidden h-12 w-12 bg-purple-700 dark:bg-gray-200 dark:active:bg-white text-gray-200 dark:text-purple-700 rounded-full active:bg-purple-900"
               onClick={() => setMenu(!menu)}
             >
               <svg
@@ -130,24 +135,26 @@ const Navbar = () => {
         >
           <nav className="h-full w-full flex flex-col items-center space-y-4 lg:flex-row lg:space-x-4 lg:space-y-0">
             <Search customClass="sm:hidden h-8 w-1/2 focus:w-3/4 px-5" />
-            <a href="home" className="hover:text-purple-700">
+            <Link to="/" className="lg:transform lg:hover:scale-105">
               <span>Home</span>
-            </a>
-            <a href="explore" className="hover:text-purple-700">
+            </Link>
+            <Link to="/explore" className="lg:transform lg:hover:scale-105">
               <span>Explore</span>
-            </a>
-            <a href="pages" className="hover:text-purple-700">
+            </Link>
+            <Link to="#" className="lg:transform lg:hover:scale-105">
               <span>Pages</span>
-            </a>
-            <a href="stats" className="hover:text-purple-700">
+            </Link>
+            <Link to="#" className="lg:transform lg:hover:scale-105">
               <span>Stats</span>
-            </a>
-            <a href="elements" className="hover:text-purple-700">
+            </Link>
+            <Link to="#" className="lg:transform lg:hover:scale-105">
               <span>Elements</span>
-            </a>
-            <button className="bg-purple-700 hover:bg-purple-800 active:bg-purple-900 text-gray-100 rounded-2xl px-5 py-1 lg:px-3">
-              <span>Connect Wallet</span>
-            </button>
+            </Link>
+            <Link to="#">
+              <button className="bg-purple-700 hover:bg-purple-800 active:bg-purple-700 dark:bg-white dark:hover:bg-gray-200 dark:active:bg-white text-gray-100 dark:text-purple-900 rounded-2xl font-medium px-5 py-1 lg:px-3">
+                <span>Connect Wallet</span>
+              </button>
+            </Link>
           </nav>
         </div>
       </div>

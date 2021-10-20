@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-const NFT = ({ image, avatar, timeLeft, name, price, rank, likes }) => {
+const NFT = ({ image, avatar, timeLeft, name, price, rank, likes, width }) => {
   const [like, setLike] = useState(false);
 
   return (
-    <div className="group px-2">
+    <div className={`group p-2 ${width}`}>
       <div className="w-full p-3 rounded-2xl border-2 border-gray-200">
         <div className="h-80 w-full p-2 relative">
           <img

@@ -1,6 +1,6 @@
 module.exports = {
   purge: false,
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class",
   theme: {
     extend: {},
   },
@@ -12,7 +12,7 @@ module.exports = {
       height: ["hover", "focus"],
       width: ["hover", "focus", "group-hover"],
       fontSize: ["hover", "focus"],
-      scale: ["group-hover"],
+      scale: ["group-hover", "dark"],
     },
   },
   plugins: [],
