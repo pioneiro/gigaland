@@ -11,7 +11,7 @@ const Search = ({ customClass }) => (
   />
 );
 
-const Navbar = ({ theme = "light" }) => {
+const Navbar = ({ theme = "light", opaque }) => {
   const [navColor, setNavColor] = useState("");
   const [search, setSearch] = useState(false);
   const [menu, setMenu] = useState(false);
@@ -19,10 +19,12 @@ const Navbar = ({ theme = "light" }) => {
   if (!menu && theme === "dark") document.documentElement.classList.add("dark");
   else document.documentElement.classList.remove("dark");
 
-  window.addEventListener("scroll", () => {
-    setNavColor(window.scrollY >= 144 ? "bg-gray-100" : "bg-transparent");
-    window.scrollY >= 144 && document.documentElement.classList.remove("dark");
-  });
+  !opaque &&
+    window.addEventListener("scroll", () => {
+      setNavColor(window.scrollY >= 144 ? "bg-gray-100" : "bg-transparent");
+      window.scrollY >= 144 &&
+        document.documentElement.classList.remove("dark");
+    });
 
   window.onresize = () => {
     if (window.innerWidth > 1024) {
@@ -34,7 +36,9 @@ const Navbar = ({ theme = "light" }) => {
   return (
     <nav
       className={
-        (menu ? "h-screen bg-gray-100 dark:bg-purple-900" : `h-20`) +
+        (menu
+          ? `h-screen ${!opaque && "bg-gray-100"} dark:bg-purple-900`
+          : `h-20 ${opaque && "bg-gray-100"}`) +
         ` w-full z-30 fixed top-0 px-3 text-gray-700 dark:text-gray-200 transition lg:h-20 ${
           !menu && navColor
         }`
