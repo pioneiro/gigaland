@@ -1,8 +1,8 @@
 import React from "react";
 
 const Collection = ({ image, avatar, name, code }) => (
-  <div className="group h-72 md:h-96 px-2">
-    <div className="h-full w-full rounded-2xl border-2 border-gray-200 overflow-hidden">
+  <div className="group h-72 md:h-96 p-2">
+    <div className="h-full w-full rounded-2xl border-2 border-gray-200 overflow-hidden transition hover:shadow-md">
       <div className="h-2/3 overflow-hidden flex items-center justify-center group-hover:opacity-90 transition">
         <img className="bg-gray-300" src={image} alt="" />
       </div>

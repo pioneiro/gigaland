@@ -5,10 +5,10 @@ const NFT = ({ image, avatar, timeLeft, name, price, rank, likes, width }) => {
 
   return (
     <div className={`group p-2 ${width}`}>
-      <div className="w-full p-3 rounded-2xl border-2 border-gray-200">
+      <div className="w-full p-3 rounded-2xl border-2 border-gray-200 transition hover:shadow-lg">
         <div className="h-80 w-full p-2 relative">
           <img
-            className="h-full w-full object-cover rounded-lg group-hover:opacity-90"
+            className="h-full w-full object-cover rounded-lg transition group-hover:opacity-90"
             src={image}
             alt=""
           />
