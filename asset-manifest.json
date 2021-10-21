@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/gigaland/static/css/main.e1d2ea48.chunk.css",
-    "main.js": "/gigaland/static/js/main.7c3b2f3b.chunk.js",
-    "main.js.map": "/gigaland/static/js/main.7c3b2f3b.chunk.js.map",
+    "main.js": "/gigaland/static/js/main.c0870b68.chunk.js",
+    "main.js.map": "/gigaland/static/js/main.c0870b68.chunk.js.map",
     "runtime-main.js": "/gigaland/static/js/runtime-main.85454094.js",
     "runtime-main.js.map": "/gigaland/static/js/runtime-main.85454094.js.map",
     "static/css/2.47f54f62.chunk.css": "/gigaland/static/css/2.47f54f62.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.47f54f62.chunk.css",
     "static/js/2.7fab6db4.chunk.js",
     "static/css/main.e1d2ea48.chunk.css",
-    "static/js/main.7c3b2f3b.chunk.js"
+    "static/js/main.c0870b68.chunk.js"
   ]
 }
