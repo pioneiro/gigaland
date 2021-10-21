@@ -8,6 +8,7 @@ import {
 
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
+import Wallet from "./pages/Wallet";
 
 import Page404 from "./components/Page404.jsx";
 
@@ -16,6 +17,7 @@ const App = () => (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/explore" exact component={Explore} />
+      <Route path="/wallet" exact component={Wallet} />
       <Route path="/404" exact component={Page404} />
       <Route path="*">
         <Redirect to="/404" />

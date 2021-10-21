@@ -74,7 +74,7 @@ const Navbar = ({ theme = "light" }) => {
             <div className="hidden sm:flex items-center relative">
               <Search
                 customClass={
-                  (search ? "w-56 pl-5 pr-12" : "mr-5 px-0 w-0") +
+                  (search ? "w-56 pl-5 pr-12" : "mr-4 px-0 w-0") +
                   " h-10 focus:w-72 lg:w-56 lg:px-5"
                 }
               />
@@ -150,7 +150,7 @@ const Navbar = ({ theme = "light" }) => {
             <Link to="#" className="lg:transform lg:hover:scale-105">
               <span>Elements</span>
             </Link>
-            <Link to="#">
+            <Link to="/wallet">
               <button className="bg-purple-700 hover:bg-purple-800 active:bg-purple-700 dark:bg-white dark:hover:bg-gray-200 dark:active:bg-white text-gray-100 dark:text-purple-900 rounded-2xl font-medium px-5 py-1 lg:px-3">
                 <span>Connect Wallet</span>
               </button>
