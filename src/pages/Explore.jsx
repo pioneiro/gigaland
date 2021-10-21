@@ -4,7 +4,7 @@ import image from "../assets/black hole.jpg";
 import avatar from "../assets/mr bean.png";
 
 import Navbar from "../components/Navbar.jsx";
-import TopHeading from "../components/TopHeading.jsx";
+import Cover from "../components/Cover.jsx";
 import Footer from "../components/Footer.jsx";
 import NFT from "../components/NTF.jsx";
 
@@ -45,7 +45,7 @@ const repeat = (component, times) => {
 const Explore = () => (
   <>
     <Navbar theme="dark" />
-    <TopHeading title="Explore" />
+    <Cover title="Explore" />
     <main className="mx-auto p-4 lg:p-8">
       <div className="flex flex-wrap items-center gap-2 px-4">
         <Search />

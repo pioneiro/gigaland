@@ -1,7 +1,7 @@
 import React from "react";
 
 import Navbar from "../components/Navbar.jsx";
-import TopHeading from "../components/TopHeading.jsx";
+import Cover from "../components/Cover.jsx";
 import Footer from "../components/Footer.jsx";
 
 const wallets = [
@@ -35,7 +35,7 @@ const wallets = [
 const Wallet = () => (
   <>
     <Navbar theme="dark" />
-    <TopHeading title="Wallet" />
+    <Cover title="Wallet" />
     <main className="mx-auto mt-8 p-8 lg:p-16 w-full flex flex-wrap justify-center">
       {wallets.map((wallet) => (
         <div className="group relative w-full sm:w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 p-2 lg:p-4">
