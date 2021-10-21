@@ -50,7 +50,7 @@ const NFT = ({ image, avatar, timeLeft, name, price, rank, likes, width }) => {
               onClick={() => setLike(!like)}
             >
               <svg
-                className={`h-5 w-5 ${like ? "text-red-500" : ""}`}
+                className={`h-5 w-5 ${like ? "text-red-500 animate-like" : ""}`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"

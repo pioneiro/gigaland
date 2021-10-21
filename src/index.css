@@ -31,6 +31,10 @@ code {
   animation: beat 2s infinite;
 }
 
+.animate-like {
+  animation: like 500ms;
+}
+
 @keyframes beat {
   0% {
     transform: scale(1);
@@ -43,6 +47,18 @@ code {
   }
   60% {
     transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes like {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.5);
   }
   100% {
     transform: scale(1);
