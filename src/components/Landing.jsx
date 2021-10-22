@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import NFT from "../assets/NFT.png";
 
@@ -29,9 +30,11 @@ const Landing = () => {
           certifies a digital asset to be unique and therefore non
           interchangeale
         </p>
-        <button className="z-20 text-xl bg-purple-800 hover:bg-purple-600 active:bg-purple-800 px-8 py-1 text-white rounded">
-          Explore
-        </button>
+        <Link to="/explore">
+          <button className="z-20 text-xl bg-purple-800 hover:bg-purple-600 active:bg-purple-800 px-8 py-1 text-white rounded">
+            Explore
+          </button>
+        </Link>
       </div>
     </main>
   );

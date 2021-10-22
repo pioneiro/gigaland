@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const NFT = ({ image, avatar, timeLeft, name, price, rank, likes, width }) => {
   const [like, setLike] = useState(false);
@@ -12,23 +13,25 @@ const NFT = ({ image, avatar, timeLeft, name, price, rank, likes, width }) => {
             src={image}
             alt=""
           />
-          <img
-            className="h-14 w-14 absolute top-0 left-0 border-2 border-gray-100 rounded-full"
-            src={avatar}
-            alt=""
-          />
-          <svg
-            className="z-10 h-4 w-4 absolute top-10 left-10 bg-gray-200 text-purple-600 rounded-full"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
+          <Link to="/profile">
+            <img
+              className="h-14 w-14 absolute top-0 left-0 border-2 border-gray-100 rounded-full"
+              src={avatar}
+              alt=""
             />
-          </svg>
+            <svg
+              className="z-10 h-4 w-4 absolute top-10 left-10 bg-gray-200 text-purple-600 rounded-full"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </Link>
           {timeLeft && (
             <span className="absolute top-0 right-0 bg-gray-100 text-purple-800 font-semibold px-2 rounded-full ring-2 ring-purple-800">
               {timeLeft}

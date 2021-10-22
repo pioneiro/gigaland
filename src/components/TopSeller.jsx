@@ -1,9 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import avatar from "../assets/mr bean.png";
 
 const Seller = ({ rank, avatar, name, value }) => (
-  <div className="group hover:bg-gray-200 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 h-full p-4 rounded-xl flex justify-start items-center space-x-4">
+  <Link
+    to="/profile"
+    className="group hover:bg-gray-200 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 h-full p-4 rounded-xl flex justify-start items-center space-x-4"
+  >
     <span className="w-1/12 font-medium text-gray-700">{`${rank}.`}</span>
     <div className="h-16 w-16 lg:h-20 lg:w-20 relative">
       <img
@@ -28,7 +32,7 @@ const Seller = ({ rank, avatar, name, value }) => (
       <span className="font-bold text-gray-700 text-lg">{name}</span>
       <span className="font-medium text-gray-500">{`${value} ETH`}</span>
     </div>
-  </div>
+  </Link>
 );
 
 const TopSeller = () => (

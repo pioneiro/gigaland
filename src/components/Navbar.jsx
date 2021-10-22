@@ -60,7 +60,7 @@ const Navbar = ({ theme = "light", opaque }) => {
           id="nav-logo"
           className="h-20 w-full lg:w-auto flex justify-between items-center space-x-2"
         >
-          <a href="/" className="h-20 flex items-center p-2">
+          <Link to="/" className="h-20 flex items-center p-2">
             <svg
               className="h-12 w-12 mr-1 text-purple-700 dark:text-gray-200"
               xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ const Navbar = ({ theme = "light", opaque }) => {
             <span className="text-gray-700 dark:text-gray-200 text-3xl font-semibold">
               {name}
             </span>
-          </a>
+          </Link>
           <div className="h-12 flex items-center space-x-2">
             <div className="hidden sm:flex items-center relative">
               <Search
