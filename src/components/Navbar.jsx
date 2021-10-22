@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import { name } from "../../package.json";
 
+const scrollBreakpoint = 256;
+
 const Search = ({ customClass }) => (
   <input
     type="text"
@@ -16,13 +18,16 @@ const Navbar = ({ theme = "light", opaque }) => {
   const [search, setSearch] = useState(false);
   const [menu, setMenu] = useState(false);
 
-  if (!menu && theme === "dark") document.documentElement.classList.add("dark");
+  if (!menu && window.scrollY < scrollBreakpoint && theme === "dark")
+    document.documentElement.classList.add("dark");
   else document.documentElement.classList.remove("dark");
 
   !opaque &&
     window.addEventListener("scroll", () => {
-      setNavColor(window.scrollY >= 144 ? "bg-gray-100" : "bg-transparent");
-      window.scrollY >= 144 &&
+      setNavColor(
+        window.scrollY >= scrollBreakpoint ? "bg-gray-100" : "bg-transparent"
+      );
+      window.scrollY >= scrollBreakpoint &&
         document.documentElement.classList.remove("dark");
     });
 
