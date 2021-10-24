@@ -12,10 +12,12 @@ import Wallet from "./pages/Wallet";
 import Profile from "./pages/Profile";
 import Create from "./pages/Create";
 
+import ScrollToTop from "./components/ScrollToTop.jsx";
 import Page404 from "./components/Page404.jsx";
 
 const App = () => (
   <Router>
+    <ScrollToTop/>
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/explore" exact component={Explore} />
