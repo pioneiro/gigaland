@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 
 import image from "../assets/black hole.jpg";
 import avatar from "../assets/mr bean.png";
@@ -24,15 +24,63 @@ const Search = () => (
   </div>
 );
 
-const Select = ({ children, name, id }) => (
-  <select
-    className="px-1 md:px-3 py-1 bg-gray-200 text-gray-700 placeholder-gray-500 border-2 border-gray-300 hover:border-purple-700 focus:border-purple-700 rounded-lg transition"
-    name={name}
-    id={id}
-  >
-    {children}
-  </select>
-);
+const Select = ({ name, id, options }) => {
+  const [option, setOption] = useState(options?.length ? options[0] : null);
+  const [drop, setDrop] = useState(false);
+
+  const ref = useRef(null);
+
+  if (!option) return null;
+
+  const maxContent = options.sort((a, b) => b.length - a.length)[0];
+
+  document.addEventListener(
+    "click",
+    (e) => !ref.current?.contains(e.target) && setDrop(false)
+  );
+
+  return (
+    <div ref={ref} className="flex flex-col relative">
+      <div
+        onClick={() => setDrop(!drop)}
+        className={`select-none px-2 md:px-3 py-1 bg-gray-200 text-gray-700 border-2 hover:border-purple-700 focus:border-purple-700 ${
+          drop
+            ? "rounded-t-lg border-purple-700"
+            : "rounded-lg border-gray-300 "
+        } cursor-pointer`}
+      >
+        <span className="invisible">{maxContent}</span>
+        <span
+          id={id}
+          aria-label={name}
+          className="absolute top-0 left-0 w-full h-full px-2 md:px-3 py-1 border-2 border-transparent bg-transparent"
+        >
+          {option}
+        </span>
+        <span className="ml-4">
+          <i class="fas fa-angle-down"></i>
+        </span>
+      </div>
+      <div
+        className={`${
+          drop ? "flex" : "hidden"
+        } flex-col absolute top-full left-0 z-30 w-full bg-purple-700 text-gray-200 border-2 border-t-0 border-purple-700 rounded-b-lg cursor-pointer overflow-hidden`}
+      >
+        {options?.map((e) => (
+          <span
+            className="block px-2 md:px-3 py-1 hover:bg-gray-200 hover:text-gray-900"
+            onClick={() => {
+              setOption(e);
+              setDrop(false);
+            }}
+          >
+            {e}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const repeat = (component, times) => {
   const content = [];
@@ -49,16 +97,22 @@ const Explore = () => (
     <main className="mx-auto p-4 lg:p-8">
       <div className="flex flex-wrap items-center gap-2 px-4">
         <Search />
-        <div className="w-full sm:w-auto flex gap-2 justify-between flex-wrap">
-          <Select name="category" id="category">
-            <option value="all">All Categories</option>
-          </Select>
-          <Select name="buy" id="buy">
-            <option value="now">Buy Now</option>
-          </Select>
-          <Select name="items" id="items">
-            <option value="all">All Items</option>
-          </Select>
+        <div className="w-full sm:w-auto flex gap-2 justify-start flex-wrap">
+          <Select
+            name="category"
+            id="category"
+            options={[
+              "All Categories",
+              "Art",
+              "Music",
+              "Domain Names",
+              "Trading Cards",
+              "Virtual Worlds",
+              "Collectibles",
+            ]}
+          />
+          <Select name="buy" id="buy" options={["Buy Now"]} />
+          <Select name="items" id="items" options={["All Items"]} />
         </div>
       </div>
       <div className="flex flex-col items-center">
