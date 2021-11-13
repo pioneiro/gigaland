@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 
+import getKey from "../utils/functions/getKey.js";
+
 import image from "../assets/black hole.jpg";
 import avatar from "../assets/mr bean.png";
 
@@ -58,7 +60,7 @@ const Select = ({ name, id, options }) => {
           {option}
         </span>
         <span className="ml-4">
-          <i class="fas fa-angle-down"></i>
+          <i className="fas fa-angle-down"></i>
         </span>
       </div>
       <div
@@ -68,6 +70,7 @@ const Select = ({ name, id, options }) => {
       >
         {options?.map((e) => (
           <span
+            key={getKey(e)}
             className="block px-2 md:px-3 py-1 hover:bg-gray-200 hover:text-gray-900"
             onClick={() => {
               setOption(e);

@@ -2,6 +2,8 @@ import React from "react";
 
 import { name } from "../../package.json";
 
+import getKey from "../utils/functions/getKey.js";
+
 const socialLinks = [
   {
     name: "Facebook",
@@ -100,6 +102,7 @@ const Footer = () => (
     <div className="flex flex-wrap px-8 lg:px-16 py-4 pb-24 border-b-2 border-t-2 text-sm sm:text-base lg:text-lg">
       {footerOptions.map((footerDiv) => (
         <div
+          key={getKey(footerDiv.name)}
           className={`group h-full w-1/2 lg:w-${
             footerDiv.width || "1/5"
           } xl:w-1/4 px-2 py-4 flex flex-col items-start space-y-2 text-gray-700`}
@@ -110,7 +113,11 @@ const Footer = () => (
           </h4>
           {footerDiv.links &&
             footerDiv.links.map((link) => (
-              <a className="hover:text-purple-700" href={link.href}>
+              <a
+                key={getKey(link.name)}
+                className="hover:text-purple-700"
+                href={link.href}
+              >
                 {link.name}
               </a>
             ))}
@@ -144,6 +151,7 @@ const Footer = () => (
       <div className="flex items-center order-2">
         {socialLinks.map((link) => (
           <a
+            key={getKey(link.name)}
             href={link.href}
             className="h-10 w-10 mx-1 rounded-lg bg-gray-200 text-purple-700 text-lg hover:text-2xl hover:bg-purple-700 hover:text-gray-100 grid place-items-center transition-all"
           >

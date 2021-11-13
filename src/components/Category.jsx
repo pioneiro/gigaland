@@ -1,5 +1,7 @@
 import React from "react";
 
+import getKey from "../utils/functions/getKey.js";
+
 const categories = [
   {
     name: "Art",
@@ -68,7 +70,10 @@ const categories = [
 const Category = () => (
   <div className="w-full flex flex-wrap justify-center">
     {categories.map((e) => (
-      <div className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-2 lg:p-4 group">
+      <div
+        key={getKey(e.name)}
+        className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-2 lg:p-4 group"
+      >
         <div className="h-full w-full p-6 bg-gray-200 flex flex-col justify-center items-center space-y-2 rounded-xl">
           <svg
             className="h-8 w-8 sm:h-12 sm:w-12 text-purple-700 transition transform group-hover:scale-125"
