@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { name } from "../../package.json";
+
+import { Web3Context } from "../utils/web3context.js";
 
 const scrollBreakpoint = 256;
 
@@ -17,6 +19,9 @@ const Navbar = ({ theme = "light", opaque }) => {
   const [navColor, setNavColor] = useState("");
   const [search, setSearch] = useState(false);
   const [menu, setMenu] = useState(false);
+
+  const { data, isConnected, disconnect } = useContext(Web3Context);
+  const { address } = data;
 
   if (!menu && window.scrollY < scrollBreakpoint && theme === "dark")
     document.documentElement.classList.add("dark");
@@ -159,9 +164,21 @@ const Navbar = ({ theme = "light", opaque }) => {
             <Link to="#" className="lg:transform lg:hover:scale-105">
               <span>Elements</span>
             </Link>
-            <Link to="/wallet">
-              <button className="bg-purple-700 hover:bg-purple-800 active:bg-purple-700 dark:bg-white dark:hover:bg-gray-200 dark:active:bg-white text-gray-100 dark:text-purple-900 rounded-2xl font-medium px-5 py-1 lg:px-3">
-                <span>Connect Wallet</span>
+            <Link to={!isConnected() ? "/wallet" : "#"}>
+              <button className="bg-purple-700 hover:bg-purple-800 active:bg-purple-700 dark:bg-white dark:hover:bg-gray-100 dark:active:bg-white text-gray-100 dark:text-purple-900 rounded-2xl font-medium px-5 py-1 lg:px-3 relative">
+                <span>
+                  {isConnected()
+                    ? address.slice(0, 4) + "****" + address.slice(-4)
+                    : "Connect Wallet"}
+                </span>
+                {isConnected() && (
+                  <span
+                    onClick={() => disconnect()}
+                    className="absolute top-0 left-0 w-full py-1 text-center bg-purple-700 active:bg-purple-700 dark:bg-white dark:active:bg-white rounded-2xl opacity-0 hover:opacity-100"
+                  >
+                    Disconnect
+                  </span>
+                )}
               </button>
             </Link>
           </nav>
