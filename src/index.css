@@ -10,7 +10,7 @@
 }
 
 ::selection {
-  @apply bg-purple-300;
+  @apply bg-purple-400 text-gray-100;
 }
 
 input::-webkit-outer-spin-button,
