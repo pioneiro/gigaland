@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { name } from "../../package.json";
@@ -23,25 +23,29 @@ const Navbar = ({ theme = "light", opaque }) => {
   const { data, isConnected, disconnect } = useContext(Web3Context);
   const { address } = data;
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= scrollBreakpoint) {
+        document.documentElement.classList.remove("dark");
+        setNavColor("bg-gray-100");
+      } else setNavColor("bg-transparent");
+    };
+
+    window.onresize = () => {
+      if (window.innerWidth > 1024) {
+        setMenu(false);
+        setSearch(false);
+      }
+    };
+
+    !opaque && window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
   if (!menu && window.scrollY < scrollBreakpoint && theme === "dark")
     document.documentElement.classList.add("dark");
   else document.documentElement.classList.remove("dark");
-
-  !opaque &&
-    window.addEventListener("scroll", () => {
-      setNavColor(
-        window.scrollY >= scrollBreakpoint ? "bg-gray-100" : "bg-transparent"
-      );
-      window.scrollY >= scrollBreakpoint &&
-        document.documentElement.classList.remove("dark");
-    });
-
-  window.onresize = () => {
-    if (window.innerWidth > 1024) {
-      setMenu(false);
-      setSearch(false);
-    }
-  };
 
   return (
     <nav
