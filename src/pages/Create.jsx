@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import image from "../assets/black hole.jpg";
+import defaultImage from "../assets/default image.png";
 import avatar from "../assets/mr bean.png";
 
 import Navbar from "../components/Navbar.jsx";
@@ -28,7 +28,19 @@ const Methods = [
 
 const Crete = () => {
   const [method, setMethod] = useState(Methods[0].id);
-  const [fileName, setFileName] = useState("");
+  const [file, setFile] = useState(null);
+
+  const Preview = () => (
+    <NFT
+      image={file ? URL.createObjectURL(file) : defaultImage}
+      avatar={avatar}
+      width="w-96 lg:w-80 xl:w-96"
+      name="Black Hole"
+      price="0.05"
+      rank="1/22"
+      likes="65"
+    />
+  );
 
   const textInputClass =
     "w-full px-2 md:px-3 py-1 bg-gray-100 text-gray-700 placeholder-gray-500 border-2 border-gray-300 hover:border-purple-700 focus:border-purple-700 transition rounded-lg";
@@ -48,13 +60,29 @@ const Crete = () => {
             Choose File
           </label>
           <span className="text-sm">
-            {fileName.length ? fileName : "No file chosen"}
+            {file && file.name.length ? (
+              <>
+                <span>{file.name}</span>
+                <button
+                  className="text-sm w-5 ml-1 bg-red-600 text-gray-100 rounded-full"
+                  onClick={() => {
+                    setFile(null);
+                    document.querySelector("input#fileUpload").value = null;
+                  }}
+                >
+                  x
+                </button>
+              </>
+            ) : (
+              "No file chosen"
+            )}
           </span>
           <input
             hidden
             type="file"
             id="fileUpload"
-            onChange={(e) => setFileName(e.target.files[0].name)}
+            accept="image/*"
+            onChange={(e) => setFile(e.target.files[0] || null)}
           />
         </div>
       ),
@@ -148,15 +176,7 @@ const Crete = () => {
             <h4 className="my-2 text-lg font-semibold text-gray-700 self-start">
               Preview
             </h4>
-            <NFT
-              image={image}
-              avatar={avatar}
-              name="Black Hole"
-              price="0.05"
-              rank="1/22"
-              likes="65"
-              width="w-96"
-            />
+            <Preview />
           </div>
           <button
             className="mt-6 px-4 py-1 self-center sm:self-auto bg-purple-700 hover:bg-purple-900 active:bg-purple-700 text-gray-100 text-xl rounded-xl"
@@ -169,16 +189,7 @@ const Crete = () => {
           <h4 className="w-80 xl:w-96 px-4 my-2 text-lg font-semibold text-gray-700">
             Preview
           </h4>
-          <NFT
-            image={image}
-            avatar={avatar}
-            timeLeft="24d 13h 37m 47s"
-            name="Black Hole"
-            price="0.05"
-            rank="1/22"
-            likes="65"
-            width="w-80 xl:w-96"
-          />
+          <Preview />
         </div>
       </main>
       <Footer />
