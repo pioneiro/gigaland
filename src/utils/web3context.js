@@ -14,11 +14,14 @@ const Web3ContextProvider = ({ children }) => {
   const disconnect = (message) => {
     window.ethereum?.removeAllListeners();
 
+    message && console.log(message);
+    console.log(`Disconnecting from ${wallet}!`);
+
     setWallet(null);
     setChainID(null);
     setAddress(null);
 
-    message && console.log(message);
+    console.log("Disconnected!");
   };
 
   const walletData = [
@@ -29,14 +32,12 @@ const Web3ContextProvider = ({ children }) => {
         "Start exploring blockchain applications in seconds. Trusted by over 1million users worldwide.",
       highlight: "Most Popular",
       connect: async (walletName) => {
-        if (!window.ethereum) return console.log("Opps! MetaMask isn't found");
+        if (!window.ethereum) return console.log("Opps! MetaMask isn't found.");
 
         const eth = window.ethereum;
 
         eth.on("accountsChanged", ([address]) =>
-          address
-            ? setAddress(address)
-            : disconnect(`No accounts deteced, disconnedted from ${walletName}`)
+          address ? setAddress(address) : disconnect(`No Accounts Deteced!`)
         );
 
         eth.on("chainChanged", (chainID) => setChainID(chainID));
@@ -52,12 +53,12 @@ const Web3ContextProvider = ({ children }) => {
           setChainID(eth.chainId);
           setAddress(address);
 
-          console.log(`Connected to ${walletName}`);
+          console.log(`Connected to ${walletName}!`);
         } catch ({ message }) {
           console.log(message);
         }
       },
-      disconnect: (walletName) => disconnect(`Disconnected from ${walletName}`),
+      disconnect: (walletName) => disconnect(),
     },
     {
       name: "Bitski",
