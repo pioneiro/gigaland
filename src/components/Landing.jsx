@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 
 import NFT from "../assets/NFT.png";
 
+import siteData from "../utils/data/siteData.js";
+
 const radius = window.innerHeight;
 const diameter = radius * 2;
 
 const Landing = () => {
+  const { name } = siteData;
+
   return (
     <main className="h-screen w-full relative overflow-hidden">
       <img
@@ -20,7 +24,7 @@ const Landing = () => {
       ></div>
       <div className="z-20 h-full w-full md:max-w-2xl lg:w-2/5 xl:w-1/3 2xl:w-3/5 flex flex-col px-16 py-32 justify-center items-start space-y-4">
         <h4 className="z-20 text-xl uppercase font-semibold text-purple-700">
-          Gigaland Market
+          {name} Market
         </h4>
         <h1 className="z-20 font-semibold text-5xl">
           Create, sell or collect digital items.

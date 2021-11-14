@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { name } from "../../package.json";
-
+import siteData from "../utils/data/siteData.js";
 import { Web3Context } from "../utils/web3context.js";
 
 const scrollBreakpoint = 256;
@@ -16,6 +15,8 @@ const Search = ({ customClass }) => (
 );
 
 const Navbar = ({ theme = "light", opaque }) => {
+  const { name, logoURL, logoIconClass } = siteData;
+
   const [navColor, setNavColor] = useState("");
   const [search, setSearch] = useState(false);
   const [menu, setMenu] = useState(false);
@@ -70,21 +71,18 @@ const Navbar = ({ theme = "light", opaque }) => {
           className="h-20 w-full lg:w-auto flex justify-between items-center space-x-2"
         >
           <Link to="/" className="h-20 flex items-center p-2">
-            <svg
-              className="h-12 w-12 mr-1 text-purple-700 dark:text-gray-200"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+            {logoURL ? (
+              <img
+                className="h-12 w-12 mr-2 object-cover rounded-full"
+                src={logoURL}
+                alt=""
               />
-            </svg>
-            <span className="text-gray-700 dark:text-gray-200 text-3xl font-semibold">
+            ) : (
+              <span className="text-5xl mr-2 text-purple-800 dark:text-gray-200">
+                <i className={logoIconClass}></i>
+              </span>
+            )}
+            <span className="text-gray-700 dark:text-gray-200 text-3xl font-semibold lowercase">
               {name}
             </span>
           </Link>
