@@ -1,7 +1,7 @@
 {
   "name": "gigaland",
   "version": "0.0.1",
-  "homepage": "https://pioneiro.github.io/gigaland",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.4.0",
